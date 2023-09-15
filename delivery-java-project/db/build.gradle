@@ -1,5 +1,21 @@
 plugins {
     id 'java'
+
+    /// Spring 설정 version은 부모의 버전을 따라간다.
+    /// JPA 동작하기 위해서 반드시 필
+    id 'org.springframework.boot'
+	id 'io.spring.dependency-management'
+
+}
+
+java {
+    sourceCompatibility = '11'
+}
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
 }
 
 group = 'org.delivery'
@@ -10,8 +26,13 @@ repositories {
 }
 
 dependencies {
-    testImplementation platform('org.junit:junit-bom:5.9.1')
-    testImplementation 'org.junit.jupiter:junit-jupiter'
+    // lombok
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+
+    // JPA & DB 연동을 위해서 필요한 부분
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    runtimeOnly 'com.mysql:mysql-connector-j'
 }
 
 test {
