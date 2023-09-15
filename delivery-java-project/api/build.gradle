@@ -1,5 +1,20 @@
 plugins {
     id 'java'
+
+    /// Spring 설정 version은 부모의 버전을 따라간다.
+    id 'org.springframework.boot'
+	id 'io.spring.dependency-management'
+
+}
+
+java {
+    sourceCompatibility = '11'
+}
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
 }
 
 group = 'org.delivery'
@@ -10,6 +25,15 @@ repositories {
 }
 
 dependencies {
+    // Spring
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+
+    // lombok
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+
+    implementation project(":db")
     testImplementation platform('org.junit:junit-bom:5.9.1')
     testImplementation 'org.junit.jupiter:junit-jupiter'
 }

@@ -1,5 +1,9 @@
 plugins {
     id 'java'
+
+    // Spring 설정
+    id 'org.springframework.boot' version '2.7.14'
+	id 'io.spring.dependency-management' version '1.0.15.RELEASE'
 }
 
 group = 'org.delivery'
@@ -13,6 +17,14 @@ allprojects {
     repositories {
         mavenCentral()
     }
+}
+
+// 해당 패키지는 jar와 bootJar로도 패키징하지 않는다.
+bootJar {
+    enabled = false
+}
+jar {
+    enabled = false
 }
 
 dependencies {
