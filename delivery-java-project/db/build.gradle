@@ -5,7 +5,6 @@ plugins {
     /// JPA 동작하기 위해서 반드시 필
     id 'org.springframework.boot'
 	id 'io.spring.dependency-management'
-
 }
 
 java {
@@ -33,6 +32,14 @@ dependencies {
     // JPA & DB 연동을 위해서 필요한 부분
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     runtimeOnly 'com.mysql:mysql-connector-j'
+}
+
+bootJar {
+    enabled = false
+}
+
+jar {
+    enabled = true
 }
 
 test {
