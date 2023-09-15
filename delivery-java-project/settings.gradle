@@ -1,2 +1,4 @@
 rootProject.name = 'delivery-java-project'
+include 'api'
+include 'db'
 
