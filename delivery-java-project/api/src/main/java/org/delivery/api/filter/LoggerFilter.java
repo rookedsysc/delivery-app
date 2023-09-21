@@ -27,7 +27,7 @@ public class LoggerFilter implements Filter {
     var req = new ContentCachingRequestWrapper((HttpServletRequest) request);
     var res = new ContentCachingResponseWrapper((HttpServletResponse) response);
 
-    /// Do Filter 기준으로 실행 전과 실행 후가 나뉜다.
+    ///# Do Filter 기준으로 실행 전과 실행 후가 나뉜다.
     /// TODO: Header 정보와 Body 정보를 찍어주는게 좋음, 한 번 해볼 것
     chain.doFilter(req, res);
 
