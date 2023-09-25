@@ -5,6 +5,7 @@ spring:
       format_sql: true
       dialect: org.hibernate.dialect.MySQL8Dialect
     hibernate:
+      # validate : Entity와 DB의 스키마를 비교하여 차이가 있으면 오류를 발생시킨다.
       ddl-auto: validate
 
   datasource:
