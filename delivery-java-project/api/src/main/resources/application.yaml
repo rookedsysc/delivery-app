@@ -13,4 +13,4 @@ spring:
     url: jdbc:mysql://delivery-sql-server:3306/delivery?userSSL=false&useUnicode=true&allowPublicKeyRetrieval=true
     driver-class-name: com.mysql.jdbc.Driver
     username: root
-    password: "test1234"
+    password: "df159357"

@@ -12,12 +12,14 @@ import org.delivery.db.BaseEntity;
 import org.delivery.db.user.enums.UserStatus;
 
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
 // 여기에 name = "user" 이런식으로 사용해도 됨
 @Entity
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 @SuperBuilder
