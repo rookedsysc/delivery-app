@@ -8,10 +8,11 @@ import org.delivery.api.domain.user.controller.model.UserLoginRequest;
 import org.delivery.api.domain.user.controller.model.UserRegisterRequest;
 import org.delivery.api.domain.user.controller.model.UserResponse;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import io.swagger.v3.oas.annotations.parameters.RequestBody;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor 
@@ -22,7 +23,10 @@ public class UserOpenApiController {
 
   // 사용자 가입 요청
   @PostMapping("/register")
-  public Api<UserResponse> register(UserRegisterRequest request) {
+  public Api<UserResponse> register(
+    @RequestBody
+    @Valid
+    UserRegisterRequest request) {
     var response = userBusiness.register(request);
 
     return Api.OK(response);
@@ -30,11 +34,12 @@ public class UserOpenApiController {
 
   @PostMapping("/login")
   public Api<UserResponse> login(
-    @Valid @RequestBody UserLoginRequest request
+    @Valid
+    @RequestBody
+    UserLoginRequest request
   ) {
     var response = userBusiness.login(request);
 
     return Api.OK(response);
-
   }
 }

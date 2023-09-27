@@ -21,7 +21,7 @@ public class UserBusiness {
   private final UserService userService;
   private final UserConverter userConverter;
 
-  /* 
+  /*
    * 사용자에 대한 가입 처리 로직
    * 1. reques
    */
@@ -36,19 +36,19 @@ public class UserBusiness {
         .map(userConverter::toResponse).orElseThrow(() -> new ApiException(ErrorCode.NULL_POINT, "Reqeust Null"));
   }
 
-  /** 
+  /**
    * 1. email, password를 받아서 사용자 체크
    * 2. user entity 로그인 확인
    * 3. 토큰 생성
    * 4. 토큰 리턴
    */
-  public UserResponse login(@Valid UserLoginRequest request) {
+  public UserResponse login(
+      UserLoginRequest request) {
     var userEntity = userService.login(request.getEmail(), request.getPassword());
 
     // 사용자가 없으면 Throw
 
     // TODO: 토큰 생성
-
 
     return userConverter.toResponse(userEntity);
   }
