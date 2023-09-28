@@ -17,6 +17,7 @@ import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
+import io.jsonwebtoken.security.SignatureException;
 
 
 @Component
@@ -63,7 +64,11 @@ public class JwtTokenHelper implements TokenHelperInterface {
 
     try {
       var result = parser.parseClaimsJws(token);
-      return new HashMap<String, Object>(result.getBody());
+      var tokenHash = new HashMap<String, Object>(result.getBody());
+      // System.out.println("keys : " + tokenHash.keySet());
+      // System.out.println("value : " + tokenHash.values());
+
+      return tokenHash;
     } catch(Exception e) {
       if(e instanceof io.jsonwebtoken.security.SignatureException) {
         throw new ApiException(TokenError.INVALID_TOKEN, e);
@@ -75,4 +80,35 @@ public class JwtTokenHelper implements TokenHelperInterface {
       }
     }
   }
+
+
+  // @Override
+  // public Map<String, Object> validationTokenWithThrow(String token) {
+  //     var key = Keys.hmacShaKeyFor(secretKey.getBytes());
+
+  //     var parser = Jwts.parserBuilder()
+  //         .setSigningKey(key)
+  //         .build();
+
+  //     try{
+  //         var result = parser.parseClaimsJws(token);
+  //         return new HashMap<String, Object>(result.getBody());
+
+  //     }catch (Exception e){
+
+  //         if(e instanceof SignatureException){
+  //             // 토큰이 유효하지 않을때
+  //             throw new ApiException(TokenError.INVALID_TOKEN, e);
+  //         }
+  //         else if(e instanceof ExpiredJwtException){
+  //             //  만료된 토큰
+  //             throw new ApiException(TokenError.EXPIRED_TOKEN, e);
+  //         }
+  //         else{
+  //             // 그외 에러
+  //             throw new ApiException(TokenError.TOEKN_EXCEPTION, e);
+  //         }
+  //     }
+  // }
+
 }

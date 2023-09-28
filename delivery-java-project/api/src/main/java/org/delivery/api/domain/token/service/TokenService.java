@@ -19,20 +19,21 @@ public class TokenService {
   // 토큰 발급
   public TokenDto issueAccessToken(Long userId) {
     var data = new HashMap<String, Object>();
-    data.put("userid", userId);
+    data.put("userId", userId);
     return tokenHelperInterface.issueAccessToken(data);
   }
 
   // 토큰 발급
   public TokenDto issueRefreshToken(Long userId) {
     var data = new HashMap<String, Object>();
-    data.put("userid", userId);
+    data.put("userId", userId);
     return tokenHelperInterface.issueRefreshToken(data);
   }
 
   // 토큰 to User ID
   public Long validationToken(String token) {
     var map = tokenHelperInterface.validationTokenWithThrow(token);
+    System.out.println(map.keySet());
     var userId = map.get("userId");
 
     Objects.requireNonNull(userId, ()-> {
@@ -41,4 +42,6 @@ public class TokenService {
 
     return Long.parseLong(userId.toString());
   }
+
+
 }
