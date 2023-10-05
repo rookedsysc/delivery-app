@@ -19,5 +19,3 @@ CREATE TABLE
         last_login_at DATETIME,
         PRIMARY KEY (id)
     ) ENGINE = InnoDB;
-
-# 
