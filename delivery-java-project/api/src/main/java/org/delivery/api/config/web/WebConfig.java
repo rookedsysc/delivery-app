@@ -22,17 +22,20 @@ public class WebConfig implements WebMvcConfigurer {
   private List<String> DEFAULT_EXCLUDE = List.of(
       "/", "/favicon.ico", "/error");
 
-  private List<String> SWAGGER = List.of("/swagger-ui.html", "/swagger-ui/**", "/swagger-resources/**", "/v2/api-docs");
+  private List<String> SWAGGER = List.of("/swagger-ui.html", "/swagger-ui/**", "/swagger-resources/**", "/v2/api-docs", "/v3/api-docs/**");
 
   @Override
   public void addInterceptors(InterceptorRegistry registry) {
-    registry.addInterceptor(authorizationInterceptor)
-        .excludePathPatterns(OPEN_API).excludePathPatterns(DEFAULT_EXCLUDE).excludePathPatterns(SWAGGER);
+    registry
+        .addInterceptor(authorizationInterceptor)
+        .excludePathPatterns(OPEN_API)
+        .excludePathPatterns(DEFAULT_EXCLUDE)
+        .excludePathPatterns(SWAGGER)
+        ;
   }
 
   @Override
   public void addArgumentResolvers(List<HandlerMethodArgumentResolver> resolvers) {
     resolvers.add(userSessionResolver);
   }
-
 }
