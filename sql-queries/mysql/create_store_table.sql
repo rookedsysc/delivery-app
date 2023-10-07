@@ -7,7 +7,7 @@ CREATE TABLE
         status VARCHAR(50),
         category VARCHAR(50),
         star double not null DEFAULT 0,
-        thumnail_url VARCHAR(500) not null,
+        thumbnail_url VARCHAR(500) not null,
         minimum_amount DECIMAL(11,4)not null,
         minimum_delivery_amount DECIMAL(11,4)not null,
         phone_number VARCHAR(20),
