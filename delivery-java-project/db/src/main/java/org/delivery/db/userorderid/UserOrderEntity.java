@@ -18,7 +18,7 @@ import java.time.LocalDateTime;
 @SuperBuilder
 @Entity
 @Table(name = "user_order_id")
-public class UserOrderIdEntity extends BaseEntity {
+public class UserOrderEntity extends BaseEntity {
 
     @Column(nullable = false)
     private Long userId;    // user table 1:n
