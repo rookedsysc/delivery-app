@@ -3,7 +3,7 @@ CREATE TABLE
         id bigint(32) NOT NULL AUTO_INCREMENT,
         store_id bigint(32) NOT NULL,
         name VARCHAR(100) NOT NULL,
-        amout DECIMAL(11,4)not null,
+        amount DECIMAL(11,4)not null,
         status VARCHAR(50) not null,
         thumbnail_url VARCHAR(500) not null,
         like_count int not null DEFAULT 0,

@@ -1,0 +1,43 @@
+/delivery-java-project/.idea
+
+/delivery-java-project/.gradle
+/delivery-java-project/build/
+/delivery-java-project/!gradle/wrapper/gradle-wrapper.jar
+/delivery-java-project/!**/src/main/**/build/
+/delivery-java-project/!**/src/test/**/build/
+
+### IntelliJ IDEA ###
+/delivery-java-project/.idea/modules.xml
+/delivery-java-project/.idea/jarRepositories.xml
+/delivery-java-project/.idea/compiler.xml
+/delivery-java-project/.idea/libraries/
+/delivery-java-project/*.iws
+/delivery-java-project/*.iml
+/delivery-java-project/*.ipr
+/delivery-java-project/out/
+/delivery-java-project/!**/src/main/**/out/
+/delivery-java-project/!**/src/test/**/out/
+
+### Eclipse ###
+/delivery-java-project/.apt_generated
+/delivery-java-project/.classpath
+/delivery-java-project/.factorypath
+/delivery-java-project/.project
+/delivery-java-project/.settings
+/delivery-java-project/.springBeans
+/delivery-java-project/.sts4-cache
+/delivery-java-project/bin/
+/delivery-java-project/!**/src/main/**/bin/
+/delivery-java-project/!**/src/test/**/bin/
+
+### NetBeans ###
+/delivery-java-project//nbproject/private/
+/delivery-java-project//nbbuild/
+/delivery-java-project//dist/
+/delivery-java-project//nbdist/
+/delivery-java-project//.nb-gradle/
+
+### VS Code ###
+/delivery-java-project/.vscode/
+/delivery-java-project/### Mac OS ###
+/delivery-java-project/.DS_Store

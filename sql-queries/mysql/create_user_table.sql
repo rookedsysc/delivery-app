@@ -14,8 +14,15 @@ CREATE TABLE
         password VARCHAR(100) NOT NULL,
         status VARCHAR(50) NOT null,
         address VARCHAR(150) not null,
-        registed_at DATETIME,
-        unregisted_at DATETIME,
+        registered_at DATETIME,
+        unregistered_at DATETIME,
         last_login_at DATETIME,
         PRIMARY KEY (id)
     ) ENGINE = InnoDB;
+
+
+ALTER TABLE delivery.user
+  CHANGE COLUMN registed_at registered_at DATETIME NULL DEFAULT NULL;
+
+ALTER TABLE delivery.user
+  CHANGE COLUMN unregisted_at unregistered_at DATETIME NULL DEFAULT NULL;

@@ -13,7 +13,7 @@ CREATE TABLE
         received_at DATETIME,
         PRIMARY KEY (id),
         index idx_user_id (user_id ASC) visible
-    ) ENINE = InnoDB;
+    ) ENGINE = InnoDB;
 
 create table
     delivery.user_order_menu (

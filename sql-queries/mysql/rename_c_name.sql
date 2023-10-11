@@ -1,3 +1,4 @@
+-- Active: 1697006872503@@121.254.195.229@3306
 # Rename column name
 # registed_at => registered_at
 ALTER Table delivery.user 
