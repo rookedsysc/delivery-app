@@ -41,3 +41,7 @@
 /delivery-java-project/.vscode/
 /delivery-java-project/### Mac OS ###
 /delivery-java-project/.DS_Store
+
+### SQL Server ###
+delivery-java-project/api/src/main/resources/application.yaml
+delivery-java-project/store-admin/src/main/resources/application.yaml
