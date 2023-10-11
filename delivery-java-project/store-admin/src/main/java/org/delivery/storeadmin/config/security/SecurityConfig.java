@@ -6,6 +6,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
 import java.util.List;
@@ -15,7 +17,6 @@ import java.util.List;
 public class SecurityConfig {
 
   private List<String> SWAGGER = List.of("/swagger-ui.html", "/swagger-ui/**", "/swagger-resources/**", "/v2/api-docs", "/v3/api-docs/**");
-
 
   @Bean
   public SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception {
@@ -42,5 +43,11 @@ public class SecurityConfig {
         })
         .formLogin(Customizer.withDefaults());
     return httpSecurity.build();
+  }
+
+  @Bean
+  public PasswordEncoder passwordEncoder() {
+    // 해쉬 방식으로 암호화
+    return new BCryptPasswordEncoder();
   }
 }
