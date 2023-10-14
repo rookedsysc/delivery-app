@@ -24,6 +24,7 @@ public class UserSessionResolver implements HandlerMethodArgumentResolver {
   private final UserService userService;
 
   @Override
+  /// 여기서 True로 return이 되면 resolveArgument가 실행됨
   public boolean supportsParameter(MethodParameter parameter) {
     // 지원하는 파라미터 체크, 어노테이션 체크하는 영역
     // 1. 어노테이션이 있는지 체크
