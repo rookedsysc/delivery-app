@@ -40,7 +40,8 @@ sql-queries/.idea/
 
 ### VS Code ###
 /delivery-java-project/.vscode/
-/delivery-java-project/### Mac OS ###
+
+### Mac OS ###
 /delivery-java-project/.DS_Store
 
 ### SQL Server ###
