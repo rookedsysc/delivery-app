@@ -17,6 +17,7 @@
 /delivery-java-project/out/
 /delivery-java-project/!**/src/main/**/out/
 /delivery-java-project/!**/src/test/**/out/
+sql-queries/.idea/
 
 ### Eclipse ###
 /delivery-java-project/.apt_generated
@@ -43,5 +44,6 @@
 /delivery-java-project/.DS_Store
 
 ### SQL Server ###
-delivery-java-project/api/src/main/resources/application.yaml
-delivery-java-project/store-admin/src/main/resources/application.yaml
+/delivery-java-project/api/src/main/resources/application.yaml
+/delivery-java-project/store-admin/src/main/resources/application.yaml
+

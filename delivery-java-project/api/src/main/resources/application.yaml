@@ -1,9 +1,9 @@
 spring:
   rabbitmq:
-    host: # rabbit mq server ip
-    port: 5672
-    username: # 내가 설정한 username
-    password: # password
+    host:
+    port:
+    username:
+    password:
   jpa:
     show-sql: true
     properties:

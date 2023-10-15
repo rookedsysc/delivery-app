@@ -2,6 +2,11 @@ server:
   port: 8081
 
 spring:
+  rabbitmq:
+    host:
+    port:
+    username:
+    password:
   # 여기에 이름을 넣어줘야 함
   application:
     name: store-admin
