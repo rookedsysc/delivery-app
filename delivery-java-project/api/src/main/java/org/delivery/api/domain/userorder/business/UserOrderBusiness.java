@@ -2,6 +2,7 @@ package org.delivery.api.domain.userorder.business;
 
 import lombok.RequiredArgsConstructor;
 import org.delivery.api.common.annotation.Business;
+import org.delivery.api.domain.producer.UserOrderProducer;
 import org.delivery.api.domain.store.converter.StoreRegisterConverter;
 import org.delivery.api.domain.store.service.StoreService;
 import org.delivery.api.domain.storemenu.converter.StoreMenuConverter;
@@ -36,6 +37,8 @@ public class UserOrderBusiness {
     private final StoreService storeService;
     private final StoreRegisterConverter storeConverter;
 
+    private final UserOrderProducer userOrderProducer;
+
 
     // 1. 사용자 , 메뉴 id
     // 2. userOrder 생성
@@ -66,6 +69,8 @@ public class UserOrderBusiness {
             userOrderMenuService.order(it);
         });
 
+        // 비동기로 사용자의 주문을 처리한다.
+        userOrderProducer.sendOrder(newUserOrderEntity);
 
         // response
         return userOrderConverter.toResponse(newUserOrderEntity);

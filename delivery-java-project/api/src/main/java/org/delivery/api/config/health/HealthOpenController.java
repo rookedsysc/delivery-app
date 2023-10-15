@@ -16,6 +16,5 @@ public class HealthOpenController {
   @GetMapping("health")
   public void health() {
     log.info("health check");
-    producer.send("delivery.exchange", "delivery.routeKey", "health check");
   }
 }
