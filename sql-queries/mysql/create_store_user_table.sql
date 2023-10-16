@@ -14,7 +14,7 @@ CREATE TABLE
         unregistered_at DATETIME,
         last_login_at DATETIME,
         PRIMARY KEY (id),
-        index idx_store_id (store_id ASC) visible,
+        index idx_store_id (store_id ASC) visible
     ) ENGINE = InnoDB;
 
 ALTER TABLE delivery.store_user
