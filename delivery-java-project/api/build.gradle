@@ -1,9 +1,16 @@
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
 plugins {
     id 'java'
 
     /// Spring 설정 version은 부모의 버전을 따라간다.
     id 'org.springframework.boot'
 	id 'io.spring.dependency-management'
+
+    /// Kotlin 설정
+    id 'org.jetbrains.kotlin.jvm'
+    id 'org.jetbrains.kotlin.plugin.spring'
+	id 'org.jetbrains.kotlin.plugin.jpa'
 }
 
 java {
@@ -50,6 +57,10 @@ dependencies {
 
     // Swagger
     implementation group: 'org.springdoc', name: 'springdoc-openapi-ui', version: '1.7.0'
+
+    // Kotlin Object Mapper
+    implementation 'com.fasterxml.jackson.module:jackson-module-kotlin'
+	implementation 'org.jetbrains.kotlin:kotlin-reflect'
 }
 
 bootJar {
@@ -62,4 +73,12 @@ jar {
 
 test {
     useJUnitPlatform()
+}
+
+tasks.withType(KotlinCompile) {
+	kotlinOptions {
+		freeCompilerArgs += '-Xjsr305=strict'
+        // 여기 Target 버전 11로 수정해야함
+		jvmTarget = '11'
+	}
 }

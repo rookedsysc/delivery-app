@@ -4,6 +4,11 @@ plugins {
     // Spring 설정
     id 'org.springframework.boot' version '2.7.14'
 	id 'io.spring.dependency-management' version '1.0.15.RELEASE'
+
+    /// Kotlin 설정
+    id 'org.jetbrains.kotlin.jvm' version '1.6.21'
+    id 'org.jetbrains.kotlin.plugin.spring' version '1.6.21'
+	id 'org.jetbrains.kotlin.plugin.jpa' version '1.6.21'
 }
 
 group = 'org.delivery'
