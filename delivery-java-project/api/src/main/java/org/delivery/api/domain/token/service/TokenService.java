@@ -23,7 +23,7 @@ public class TokenService {
     return tokenHelperInterface.issueAccessToken(data);
   }
 
-  // 토큰 발급
+  // 리프레쉬 토큰 발급
   public TokenDto issueRefreshToken(Long userId) {
     var data = new HashMap<String, Object>();
     data.put("userId", userId);
@@ -42,6 +42,4 @@ public class TokenService {
 
     return Long.parseLong(userId.toString());
   }
-
-
 }

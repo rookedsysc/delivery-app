@@ -30,7 +30,8 @@ public class UserSessionResolver implements HandlerMethodArgumentResolver {
     // 1. 어노테이션이 있는지 체크
     var annotation = parameter.hasParameterAnnotation(UserSession.class);
     // 2. parameter type 체크
-    boolean parameterType = parameter.getParameterType().equals(User.class);
+    boolean parameterType = parameter.getParameterType()
+        .equals(User.class);
 
     return annotation && parameterType;
   }
@@ -38,7 +39,7 @@ public class UserSessionResolver implements HandlerMethodArgumentResolver {
   @Override
   @Nullable
   public Object resolveArgument(MethodParameter parameter, @Nullable ModelAndViewContainer mavContainer,
-      NativeWebRequest webRequest, @Nullable WebDataBinderFactory binderFactory) throws Exception {
+                                NativeWebRequest webRequest, @Nullable WebDataBinderFactory binderFactory) throws Exception {
     // support parameter가 true일 때 실행되는 영역
 
     // request holder에서 찾아옴
@@ -49,9 +50,16 @@ public class UserSessionResolver implements HandlerMethodArgumentResolver {
     var userEntity = userService.getUserWithThrow(Long.parseLong(userId.toString()));
 
     // 사용자 정보 세팅
-    return User.builder().id(userEntity.getId()).name(userEntity.getName()).email(userEntity.getEmail())
-        .password(userEntity.getPassword()).status(userEntity.getStatus()).address(userEntity.getAddress())
-        .registeredAt(userEntity.getRegisteredAt()).unregisteredAt(userEntity.getUnregisteredAt())
-        .lastLoginAt(userEntity.getLastLoginAt()).build();
+    return User.builder()
+        .id(userEntity.getId())
+        .name(userEntity.getName())
+        .email(userEntity.getEmail())
+        .password(userEntity.getPassword())
+        .status(userEntity.getStatus())
+        .address(userEntity.getAddress())
+        .registeredAt(userEntity.getRegisteredAt())
+        .unregisteredAt(userEntity.getUnregisteredAt())
+        .lastLoginAt(userEntity.getLastLoginAt())
+        .build();
   }
 }

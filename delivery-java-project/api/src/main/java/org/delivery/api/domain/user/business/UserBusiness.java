@@ -22,17 +22,7 @@ public class UserBusiness {
   private final UserConverter userConverter;
   private final TokenBusiness tokenBusiness;
 
-  /*
-   * 사용자에 대한 가입 처리 로직
-   * 1. reques
-   */
   public UserResponse register(UserRegisterRequest request) {
-    // var entity = userConverter.toEntity(request);
-    // var newEntity = userService.register(entity);
-    // var response = userConverter.toResponse(newEntity);
-
-    // return response;
-
     return Optional.ofNullable(request).map(userConverter::toEntity).map(userService::register)
         .map(userConverter::toResponse).orElseThrow(() -> new ApiException(ErrorCode.NULL_POINT, "Reqeust Null"));
   }

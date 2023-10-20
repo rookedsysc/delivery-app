@@ -53,7 +53,6 @@ public class AuthorizationInterceptor implements HandlerInterceptor {
       var requestContext = Objects.requireNonNull(RequestContextHolder.getRequestAttributes());
       requestContext.setAttribute("userId", userId, RequestAttributes.SCOPE_REQUEST);
       return true;
-
     }
 
     throw new ApiException(TokenError.INVALID_TOKEN, "인증실패");
