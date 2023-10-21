@@ -26,6 +26,13 @@ dependencies {
     implementation 'org.projectlombok:lombok:1.18.28'
     compileOnly 'org.projectlombok:lombok:1.18.28'
     annotationProcessor 'org.projectlombok:lombok:1.18.28'
+
+    // validation
+    implementation group: 'jakarta.validation', name: 'jakarta.validation-api', version: '2.0.2'
+
+    // Spring
+    implementation 'org.springframework:spring-core:5.3.27'
+    implementation 'org.springframework:spring-context:5.3.27'
 }
 
 test {
