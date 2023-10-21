@@ -9,10 +9,12 @@ class Result(
 	val resultDescription: String
 ) {
 	companion object {
+		@JvmStatic
 		fun ok(): Result {
 			return Result(ErrorCode.OK.getErrorCode(), ErrorCode.OK.getDescription(), "The request was successful.")
 		}
 		
+		@JvmStatic
 		fun ERROR(errorCode: ErrorCodeInterface): Result {
 			return Result(
 				resultCode = errorCode.getErrorCode(),
@@ -21,6 +23,7 @@ class Result(
 			)
 		}
 		
+		@JvmStatic
 		fun ERROR(errorCode: ErrorCodeInterface, throwable: Throwable): Result {
 			return Result(
 				resultCode = errorCode.getErrorCode(),
@@ -29,6 +32,7 @@ class Result(
 			)
 		}
 		
+		@JvmStatic
 		fun ERROR(errorCode: ErrorCodeInterface, description: String): Result {
 			return Result(
 				resultCode = errorCode.getErrorCode(),
