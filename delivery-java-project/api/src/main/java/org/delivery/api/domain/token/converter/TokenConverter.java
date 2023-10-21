@@ -3,7 +3,7 @@ package org.delivery.api.domain.token.converter;
 
 import java.util.Objects;
 
-import org.delivery.api.common.annotation.Converter;
+import org.delivery.common.annotation.Converter;
 import org.delivery.common.error.ErrorCode;
 import org.delivery.common.exception.ApiException;
 import org.delivery.api.domain.token.controller.model.TokenResponse;

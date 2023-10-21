@@ -1,6 +1,6 @@
 package org.delivery.api.domain.storemenu.converter;
 
-import org.delivery.api.common.annotation.Converter;
+import org.delivery.common.annotation.Converter;
 import org.delivery.common.error.ErrorCode;
 import org.delivery.common.exception.ApiException;
 import org.delivery.api.domain.storemenu.controller.model.StoreMenuRegisterRequest;

@@ -2,7 +2,7 @@ package org.delivery.api.account;
 
 import lombok.RequiredArgsConstructor;
 import org.delivery.api.account.model.AccountMeResponse;
-import org.delivery.api.common.api.Api;
+import org.delivery.common.api.Api;
 import org.delivery.common.error.ErrorCode;
 import org.delivery.common.exception.ApiException;
 import org.delivery.db.account.AccountRepository;
@@ -34,6 +34,6 @@ public class AccountApiController {
     } catch (Exception e) {
       throw new ApiException(ErrorCode.SERVER_ERROR, e, "숫자가 아닙니다.");
     }
-    return Api.OK(res);
+    return Api.Companion.OK(res);
   }
 }
