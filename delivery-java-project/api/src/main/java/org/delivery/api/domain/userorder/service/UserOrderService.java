@@ -2,7 +2,7 @@ package org.delivery.api.domain.userorder.service;
 
 import lombok.RequiredArgsConstructor;
 import org.delivery.common.error.ErrorCode;
-import org.delivery.api.common.exception.ApiException;
+import org.delivery.common.exception.ApiException;
 import org.delivery.db.userorderid.UserOrderEntity;
 import org.delivery.db.userorderid.UserOrderRepository;
 import org.delivery.db.userorderid.enums.UserOrderStatus;

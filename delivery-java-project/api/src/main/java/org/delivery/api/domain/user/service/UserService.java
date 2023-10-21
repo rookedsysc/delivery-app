@@ -5,7 +5,7 @@ import java.util.Optional;
 
 import org.delivery.common.error.ErrorCode;
 import org.delivery.common.error.UserError;
-import org.delivery.api.common.exception.ApiException;
+import org.delivery.common.exception.ApiException;
 import org.delivery.db.user.UserEntity;
 import org.delivery.db.user.UserRepository;
 import org.delivery.db.user.enums.UserStatus;

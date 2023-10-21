@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.delivery.common.error.ErrorCode;
-import org.delivery.api.common.exception.ApiException;
+import org.delivery.common.exception.ApiException;
 import org.delivery.db.store.StoreEntity;
 import org.delivery.db.store.StoreRepository;
 import org.delivery.db.store.enums.StoreCategory;

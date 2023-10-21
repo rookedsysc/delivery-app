@@ -4,7 +4,7 @@ import java.util.Optional;
 
 import org.delivery.api.common.annotation.Converter;
 import org.delivery.common.error.ErrorCode;
-import org.delivery.api.common.exception.ApiException;
+import org.delivery.common.exception.ApiException;
 import org.delivery.api.domain.store.controller.model.StoreRegisterRequest;
 import org.delivery.api.domain.store.controller.model.StoreResponse;
 import org.delivery.db.store.StoreEntity;

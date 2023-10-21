@@ -5,7 +5,7 @@ import java.util.Objects;
 
 import org.delivery.api.common.annotation.Converter;
 import org.delivery.common.error.ErrorCode;
-import org.delivery.api.common.exception.ApiException;
+import org.delivery.common.exception.ApiException;
 import org.delivery.api.domain.token.controller.model.TokenResponse;
 import org.delivery.api.domain.token.model.TokenDto;
 
