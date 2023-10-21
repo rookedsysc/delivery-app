@@ -2,13 +2,10 @@ package org.delivery.db.storemenu;
 
 import java.math.BigDecimal;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 import org.delivery.db.BaseEntity;
+import org.delivery.db.store.StoreEntity;
 import org.delivery.db.storemenu.enums.StoreMenuStatus;
 
 import lombok.AllArgsConstructor;
@@ -25,8 +22,9 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @Table(name = "store_menu")
 public class StoreMenuEntity extends BaseEntity {
-  @Column(nullable = false)
-  private Long storeId;
+  @JoinColumn(nullable = false)
+  @ManyToOne
+  private StoreEntity store;
 
   @Column(nullable = false, length = 100)
   private String name;

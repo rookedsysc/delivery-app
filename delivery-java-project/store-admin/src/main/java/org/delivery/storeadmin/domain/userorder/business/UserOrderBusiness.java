@@ -44,7 +44,7 @@ public class UserOrderBusiness {
     // 유저가 주문한 모든 메뉴를 가져옴
     var storeMenuResponseList = userOrderMenuList.stream()
         .map(userOrderMenuEntity -> {
-          return storeMenuService.getStoreMenuWithThrow(userOrderMenuEntity.getStoreMenuId());
+          return storeMenuService.getStoreMenuWithThrow(userOrderMenuEntity.getStoreMenu());
         })
         .map(storeMenuEntity -> {
           return storeMenuConverter.toResponse(storeMenuEntity);
@@ -59,7 +59,7 @@ public class UserOrderBusiness {
         .storeMenuResponseList(storeMenuResponseList)
         .build();
 
-    var userConnection = sseConnectionPool.getSession(userOrderEntity.getStoreId()
+    var userConnection = sseConnectionPool.getSession(userOrderEntity.getStoreEntity()
         .toString());
 
     // 사용자에게 push
