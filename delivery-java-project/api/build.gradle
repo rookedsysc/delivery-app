@@ -67,6 +67,14 @@ bootJar {
     enabled = true
 }
 
+tasks.withType(KotlinCompile) {
+	kotlinOptions {
+		freeCompilerArgs += '-Xjsr305=strict'
+        // 여기 Target 버전 11로 수정해야함
+		jvmTarget = '11'
+	}
+}
+
 jar {
     enabled = false
 }
@@ -75,10 +83,3 @@ test {
     useJUnitPlatform()
 }
 
-tasks.withType(KotlinCompile) {
-	kotlinOptions {
-		freeCompilerArgs += '-Xjsr305=strict'
-        // 여기 Target 버전 11로 수정해야함
-		jvmTarget = '11'
-	}
-}

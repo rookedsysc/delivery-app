@@ -20,7 +20,8 @@ public class StoreService {
 
   // 유효한 스토어 가져오기
   public StoreEntity getStoreWithThrow(Long id) {
-    var storeEntity = storeRepository.findFirstByIdAndStatusOrderByIdDesc(id, StoreStatus.REGISTERED)
+    var storeEntity = Optional.ofNullable(storeRepository.findFirstByIdAndStatusOrderByIdDesc(id, StoreStatus.REGISTERED)
+        )
         .orElseThrow(() -> new ApiException(ErrorCode.NULL_POINT));
 
     return storeEntity;
@@ -28,11 +29,13 @@ public class StoreService {
 
   // 스토어 등록
   public StoreEntity register(StoreEntity storeEntity) {
-    return Optional.ofNullable(storeEntity).map(it -> {
-      it.setStar(0);
-      it.setStatus(StoreStatus.REGISTERED);
-      return storeRepository.save(it);
-    }).orElseThrow(() -> new ApiException(ErrorCode.NULL_POINT));
+    return Optional.ofNullable(storeEntity)
+        .map(it -> {
+          it.setStar(0);
+          it.setStatus(StoreStatus.REGISTERED);
+          return storeRepository.save(it);
+        })
+        .orElseThrow(() -> new ApiException(ErrorCode.NULL_POINT));
   }
 
   // 카테고리로 스토어 검색

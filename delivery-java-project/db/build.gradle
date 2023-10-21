@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
 plugins {
     id 'java'
 
@@ -5,6 +7,10 @@ plugins {
     /// JPA 동작하기 위해서 반드시 필
     id 'org.springframework.boot'
 	id 'io.spring.dependency-management'
+
+    /// Kotlin 설정
+    id 'org.jetbrains.kotlin.jvm'
+	id 'org.jetbrains.kotlin.plugin.jpa'
 }
 
 java {
@@ -38,6 +44,15 @@ bootJar {
     enabled = false
 }
 
+tasks.withType(KotlinCompile) {
+	kotlinOptions {
+		freeCompilerArgs += '-Xjsr305=strict'
+        // 여기 Target 버전 11로 수정해야함
+		jvmTarget = '11'
+	}
+}
+
+
 jar {
     enabled = true
 }
@@ -45,3 +60,4 @@ jar {
 test {
     useJUnitPlatform()
 }
+

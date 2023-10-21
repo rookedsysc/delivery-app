@@ -11,40 +11,46 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @RequiredArgsConstructor
 @Service
 public class AuthorizationService implements UserDetailsService {
 
-    private final StoreUserService storeUserService;
-    private final StoreRepository storeRepository;
-    @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+  private final StoreUserService storeUserService;
+  private final StoreRepository storeRepository;
 
-        var storeUserEntity = storeUserService.getRegisterUser(username);
+  @Override
+  public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
-        var storeEntity = storeRepository.findFirstByIdAndStatusOrderByIdDesc(
-            storeUserEntity.get().getStoreId(),
-            StoreStatus.REGISTERED
-        );
+    var storeUserEntity = storeUserService.getRegisterUser(username);
 
-        return storeUserEntity.map(it ->{
+    var storeEntity = Optional.ofNullable(storeRepository.findFirstByIdAndStatusOrderByIdDesc(
+        storeUserEntity.get()
+            .getStoreId(),
+        StoreStatus.REGISTERED
+    ));
 
-            var userSession = UserSession.builder()
-                .userId(it.getId())
-                .email(it.getEmail())
-                .password(it.getPassword())
-                .status(it.getStatus())
-                .role(it.getRole())
-                .registeredAt(it.getRegisteredAt())
-                .lastLoginAt(it.getLastLoginAt())
-                .unregisteredAt(it.getUnregisteredAt())
+    return storeUserEntity.map(it -> {
 
-                .storeId(storeEntity.get().getId())
-                .storeName(storeEntity.get().getName())
-                .build();
+          var userSession = UserSession.builder()
+              .userId(it.getId())
+              .email(it.getEmail())
+              .password(it.getPassword())
+              .status(it.getStatus())
+              .role(it.getRole())
+              .registeredAt(it.getRegisteredAt())
+              .lastLoginAt(it.getLastLoginAt())
+              .unregisteredAt(it.getUnregisteredAt())
 
-            return userSession;
+              .storeId(storeEntity.get()
+                  .getId())
+              .storeName(storeEntity.get()
+                  .getName())
+              .build();
+
+          return userSession;
         })
         .orElseThrow(() -> new UsernameNotFoundException(username));
-    }
+  }
 }
