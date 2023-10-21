@@ -1,7 +1,7 @@
 package org.delivery.api.common.api;
 
-import org.delivery.api.common.error.ErrorCode;
-import org.delivery.api.common.error.ErrorCodeInterface;
+import org.delivery.common.error.ErrorCode;
+import org.delivery.common.error.ErrorCodeInterface;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

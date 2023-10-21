@@ -2,7 +2,7 @@ package org.delivery.api.common.api;
 
 import javax.validation.Valid;
 
-import org.delivery.api.common.error.ErrorCodeInterface;
+import org.delivery.common.error.ErrorCodeInterface;
 
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;

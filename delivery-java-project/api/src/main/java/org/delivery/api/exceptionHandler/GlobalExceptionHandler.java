@@ -1,7 +1,7 @@
 package org.delivery.api.exceptionHandler;
 
 import org.delivery.api.common.api.Api;
-import org.delivery.api.common.error.ErrorCode;
+import org.delivery.common.error.ErrorCode;
 import org.springframework.core.annotation.Order;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;

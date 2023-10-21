@@ -5,8 +5,8 @@ import java.util.Objects;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.delivery.api.common.error.TokenError;
-import org.delivery.api.common.error.UserError;
+import org.delivery.common.error.TokenError;
+import org.delivery.common.error.UserError;
 import org.delivery.api.common.exception.ApiException;
 import org.delivery.api.domain.token.business.TokenBusiness;
 import org.springframework.http.HttpMethod;

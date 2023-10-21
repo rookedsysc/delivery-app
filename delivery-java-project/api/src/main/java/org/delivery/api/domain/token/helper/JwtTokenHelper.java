@@ -6,7 +6,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.delivery.api.common.error.TokenError;
+import org.delivery.common.error.TokenError;
 import org.delivery.api.common.exception.ApiException;
 import org.delivery.api.domain.token.interfaces.TokenHelperInterface;
 import org.delivery.api.domain.token.model.TokenDto;

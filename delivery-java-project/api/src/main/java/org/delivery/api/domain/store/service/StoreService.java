@@ -3,7 +3,7 @@ package org.delivery.api.domain.store.service;
 import java.util.List;
 import java.util.Optional;
 
-import org.delivery.api.common.error.ErrorCode;
+import org.delivery.common.error.ErrorCode;
 import org.delivery.api.common.exception.ApiException;
 import org.delivery.db.store.StoreEntity;
 import org.delivery.db.store.StoreRepository;
