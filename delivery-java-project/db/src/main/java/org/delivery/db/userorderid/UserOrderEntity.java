@@ -1,9 +1,7 @@
 package org.delivery.db.userorderid;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.*;
 import lombok.experimental.SuperBuilder;
 import org.delivery.db.BaseEntity;
 import org.delivery.db.store.StoreEntity;
@@ -53,5 +51,8 @@ public class UserOrderEntity extends BaseEntity {
 
   /// userOrderEntity 쪽과 연결
   @OneToMany(mappedBy = "userOrder")
+  @ToString.Exclude
+  /// ObjectMapper에서 JSON으로 변환할 때, 해당 필드를 무시하도록 설정
+  @JsonIgnore
   private List<UserOrderMenuEntity> userOrderMenuList; // UserOrderMenuEntity 1 : n UserOrderMenuEntity
 }
