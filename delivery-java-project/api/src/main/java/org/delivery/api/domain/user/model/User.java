@@ -2,20 +2,14 @@ package org.delivery.api.domain.user.model;
 
 import java.time.LocalDateTime;
 
-import javax.persistence.Column;
-import javax.persistence.Enumerated;
-
+import lombok.*;
 import org.delivery.db.user.enums.UserStatus;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
-@Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@ToString
+@EqualsAndHashCode
 public class User {
   private Long id;
   private String name;
@@ -26,4 +20,40 @@ public class User {
   private LocalDateTime registeredAt;
   private LocalDateTime unregisteredAt;
   private LocalDateTime lastLoginAt;
+
+  public Long getId() {
+    return id;
+  }
+
+  public String getName() {
+    return name;
+  }
+
+  public String getEmail() {
+    return email;
+  }
+
+  public String getPassword() {
+    return password;
+  }
+
+  public UserStatus getStatus() {
+    return status;
+  }
+
+  public String getAddress() {
+    return address;
+  }
+
+  public LocalDateTime getRegisteredAt() {
+    return registeredAt;
+  }
+
+  public LocalDateTime getUnregisteredAt() {
+    return unregisteredAt;
+  }
+
+  public LocalDateTime getLastLoginAt() {
+    return lastLoginAt;
+  }
 }

@@ -1,6 +1,6 @@
 package org.delivery.storeadmin.domain.userorder.converter;
 
-import org.delivery.db.userorderid.UserOrderEntity;
+import org.delivery.db.userorder.UserOrderEntity;
 import org.delivery.storeadmin.domain.userorder.controller.model.UserOrderResponse;
 import org.springframework.stereotype.Service;
 
@@ -11,7 +11,7 @@ public class UserOrderConverter {
         return UserOrderResponse.builder()
             .id(userOrderEntity.getId())
             .userId(userOrderEntity.getUserId())
-            .storeId(userOrderEntity.getStoreEntity().getId())
+            .storeId(userOrderEntity.getStore().getId())
             .status(userOrderEntity.getStatus())
             .amount(userOrderEntity.getAmount())
             .orderedAt(userOrderEntity.getOrderedAt())

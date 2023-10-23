@@ -1,5 +1,6 @@
 package org.delivery.db.userorderid
 
+import org.delivery.db.userorder.UserOrderEntity
 import org.delivery.db.userorderid.enums.UserOrderStatus
 import org.springframework.data.jpa.repository.JpaRepository
 import java.util.*

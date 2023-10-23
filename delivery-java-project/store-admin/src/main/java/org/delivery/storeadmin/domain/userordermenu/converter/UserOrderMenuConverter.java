@@ -1,7 +1,7 @@
 package org.delivery.storeadmin.domain.userordermenu.converter;
 
 import org.delivery.db.storemenu.StoreMenuEntity;
-import org.delivery.db.userorderid.UserOrderEntity;
+import org.delivery.db.userorder.UserOrderEntity;
 import org.delivery.db.userordermenu.UserOrderMenuEntity;
 import org.delivery.storeadmin.common.Converter;
 

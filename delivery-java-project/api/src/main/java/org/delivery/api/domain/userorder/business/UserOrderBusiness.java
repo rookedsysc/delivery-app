@@ -99,7 +99,7 @@ public class UserOrderBusiness {
               })
               .collect(Collectors.toList());
 
-          var storeEntity = userOrderEntity.getStoreEntity();
+          var storeEntity = userOrderEntity.getStore();
 
           return UserOrderDetailResponse.builder()
               .userOrderResponse(userOrderConverter.toResponse(userOrderEntity))
@@ -129,7 +129,7 @@ public class UserOrderBusiness {
               })
               .collect(Collectors.toList());
 
-          var storeEntity = userOrderEntity.getStoreEntity();
+          var storeEntity = userOrderEntity.getStore();
 
           return UserOrderDetailResponse.builder()
               .userOrderResponse(userOrderConverter.toResponse(userOrderEntity))
@@ -163,7 +163,7 @@ public class UserOrderBusiness {
         })
         .collect(Collectors.toList());
 
-    var storeEntity = userOrderEntity.getStoreEntity();
+    var storeEntity = userOrderEntity.getStore();
 
     return UserOrderDetailResponse.builder()
         .userOrderResponse(userOrderConverter.toResponse(userOrderEntity))
