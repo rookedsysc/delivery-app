@@ -1,13 +1,12 @@
 package org.delivery.api.domain.userorder.controller.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.validation.constraints.NotNull;
 import java.util.List;
 
-@Data
+@ToString
+@EqualsAndHashCode
 @NoArgsConstructor
 @AllArgsConstructor
 public class UserOrderRequest {
@@ -22,4 +21,15 @@ public class UserOrderRequest {
     @NotNull
     private List<Long> storeMenuIdList;
 
+    public Long getStoreId() {
+        return storeId;
+    }
+
+    public List<Long> getStoreMenuIdList() {
+        return storeMenuIdList;
+    }
+
+    public void setStoreId(Long storeId) {
+        this.storeId = storeId;
+    }
 }

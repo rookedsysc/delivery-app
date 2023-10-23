@@ -12,9 +12,9 @@ class UserOrderConverter {
 	fun toEntity(
 		user: User?,
 		storeEntity: StoreEntity?,
-		storeMenuEntityList:List<StoreMenuEntity>
+		storeMenuEntityList: List<StoreMenuEntity>?
 	): UserOrderEntity {
-		val totalAmount = storeMenuEntityList.mapNotNull{ it -> it.amount }?.reduce{
+		val totalAmount = storeMenuEntityList?.mapNotNull{ it -> it.amount }?.reduce{
 			acc, bigDecimal -> acc.add(bigDecimal)
 		}
 		
