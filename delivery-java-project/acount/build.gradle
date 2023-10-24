@@ -50,6 +50,9 @@ dependencies {
     // Kotlin Object Mapper
     implementation 'com.fasterxml.jackson.module:jackson-module-kotlin'
 	implementation 'org.jetbrains.kotlin:kotlin-reflect'
+
+    // Swagger
+    implementation group: 'org.springdoc', name: 'springdoc-openapi-ui', version: '1.7.0'
 }
 
 bootJar {
