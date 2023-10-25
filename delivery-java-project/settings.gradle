@@ -5,4 +5,5 @@ include 'store-admin'
 include 'testmodeul'
 include 'common'
 include 'acount'
+include 'apigw'
 
