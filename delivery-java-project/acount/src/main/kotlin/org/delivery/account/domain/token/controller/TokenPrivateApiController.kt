@@ -21,7 +21,7 @@ class TokenPrivateApiController (
 		@RequestBody
 		tokenValidationRequest: TokenValidationRequest?
 	): TokenValidationResponse? {
-		log.info("token validation init : $tokenValidationRequest")
+		log.info("token validation init : $tokenValidationRequest}")
 		return tokenBusiness.tokenValidation(tokenValidationRequest)
 	
 	}
