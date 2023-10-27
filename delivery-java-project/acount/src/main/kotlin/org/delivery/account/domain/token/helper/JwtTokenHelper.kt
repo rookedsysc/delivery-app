@@ -83,7 +83,7 @@ class JwtTokenHelper
 			.build()
 		
 		return try {
-			val result = token?.let { parser.parseClaimsJwt(it) }
+			val result = token?.let { parser.parseClaimsJws(it) }
 			HashMap(result?.body)
 		} catch (e: Exception) {
 			when (e) {
@@ -96,7 +96,7 @@ class JwtTokenHelper
 				}
 				
 				else -> {
-					throw ApiException(TokenError.INVALID_TOKEN)
+					throw ApiException(TokenError.TOEKN_EXCEPTION, e)
 				}
 			}
 		}
