@@ -50,6 +50,7 @@ public class UserSessionResolver implements HandlerMethodArgumentResolver {
     var userEntity = userService.getUserWithThrow(Long.parseLong(userId.toString()));
 
     // 사용자 정보 세팅
+    // TODO: api gateway를 등록함으로써 user entity에 대한 정보를 api 서버에서 갖고 있을 이유가 없어짐
     return User.builder()
         .id(userEntity.getId())
         .name(userEntity.getName())

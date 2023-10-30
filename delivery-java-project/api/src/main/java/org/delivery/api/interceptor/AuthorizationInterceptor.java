@@ -5,6 +5,7 @@ import java.util.Objects;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.delivery.common.error.ErrorCode;
 import org.delivery.common.error.TokenError;
 import org.delivery.common.error.UserError;
 import org.delivery.common.exception.ApiException;
@@ -41,20 +42,14 @@ public class AuthorizationInterceptor implements HandlerInterceptor {
     }
 
     // TODO: Header 검증 (여기에 인증 넣을 예정)
-    var accessToken = request.getHeader("authorization-token");
-    if(accessToken == null) {
-      throw new ApiException(TokenError.AUTHROIZATION_HEADER_NOT_FOUND);
+    var userId = request.getHeader("x-user-id");
+    if(userId == null) {
+      throw new ApiException(ErrorCode.BAD_REQUEST, "유저 아이디가 없습니다.");
     }
-
-    var userId = TokenBusiness.validationAccessToken(accessToken);
 
     // 인증 성공
-    if (userId != null) {
-      var requestContext = Objects.requireNonNull(RequestContextHolder.getRequestAttributes());
-      requestContext.setAttribute("userId", userId, RequestAttributes.SCOPE_REQUEST);
-      return true;
-    }
-
-    throw new ApiException(TokenError.INVALID_TOKEN, "인증실패");
+    var requestContext = Objects.requireNonNull(RequestContextHolder.getRequestAttributes());
+    requestContext.setAttribute("userId", userId, RequestAttributes.SCOPE_REQUEST);
+    return true;
   }
 }
