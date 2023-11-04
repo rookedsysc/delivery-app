@@ -30,6 +30,10 @@ repositories {
     mavenCentral()
 }
 
+ext {
+    set('springBootAdminVersion', '2.7.4')
+}
+
 dependencies {
     // JWT
     implementation group: 'io.jsonwebtoken', name: 'jjwt-api', version: '0.11.5'
@@ -63,6 +67,16 @@ dependencies {
     // Kotlin Object Mapper
     implementation 'com.fasterxml.jackson.module:jackson-module-kotlin'
 	implementation 'org.jetbrains.kotlin:kotlin-reflect'
+
+
+    // Spring Admin Client
+    implementation("de.codecentric:spring-boot-admin-starter-client")
+}
+
+dependencyManagement {
+	imports {
+		mavenBom("de.codecentric:spring-boot-admin-dependencies:${property("springBootAdminVersion")}")
+	}
 }
 
 bootJar {
