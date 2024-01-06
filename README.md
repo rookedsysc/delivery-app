@@ -34,6 +34,11 @@
   <img src="https://img.shields.io/badge/intellijidea-000000?style=for-the-badge&logo=intellijidea&logoColor=white">
 </div>
 
+## 다이어그램 
+
+<img width="650" alt="image" src="https://github.com/rookedsysc/delivery-app/assets/67862775/efb8125e-2233-45cd-8d68-33c124af6335">
+
+
 ## 총평 
 
 - Test 코드 작성 미숙, Test에 대해서 배우지 않고 진행한 프로젝트여서 Test Code가 작성되지 않았습니다.
